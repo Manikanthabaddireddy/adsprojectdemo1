@@ -1,0 +1,16 @@
+body{
+    background-color: aqua;
+}
+h1{
+    background-color:white;
+    text-align: center;
+}
+button{
+    position: absolute;
+    border-radius: 20%;
+    left: 5%;
+}
+button:hover{
+    background-color: black;
+    color: azure;
+}

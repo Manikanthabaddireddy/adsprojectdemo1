@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Report page</title>
+</head>
+<body>
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <h1 style="background-color:white;text-align:center;position:fixed;">Customer details</h1><br><br>
+    <a href="http://127.0.0.1:8000/WA/Home/" style="position: relative;">Go Back</a><br>
+    <!--<style>
+        table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #96D4D4;
+}
+    </style> -->
+    
+    <table class="table table-hover table-danger">
+       <thead >
+        <tr>
+            <th>Id</th>
+            <th>Phone Number</th>
+            <th>Name</th>
+            <th>Calling status</th>
+            <th>Current status</th>
+            <th>Date Of Function</th>
+            <th>type Function</th>
+            <th>Guests</th>
+            <th>Decoration</th>
+            <th>Food</th>
+            <th>Customer Budget</th>
+            <th>Price_Quoted</th>
+            <th>Prince_Finalized</th>
+            <th>Discount_given</th>
+            <th>Comments</th>
+            <th>Actions</th>
+            <th>Remainder</th>
+            <th>Finance</th>
+            <th>Added into system</th>
+            
+        </tr></thead>
+        {% for s in Form_data %}
+        
+        <tr>
+            <td>{{s.id}}</td>
+            <td>{{s.Phone_Number}}</td>
+            <td>{{s.Name}}</td>
+            <td>{{s.Calling_status}}</td>
+            <td>{{s.Current_status}}</td>
+            <td>{{s.Date_Of_Function}}</td>
+            <td>{{s.type_function}}</td>
+            <td>{{s.Guests}}</td>
+            <td>{{s.Decoration}}</td>
+            <td>{{s.Food}}</td>
+            <td>{{s.Customer_Budget}}</td>
+            <td>{{s.Price_Quoted}}</td>
+            <td>{{s.Prince_Finalized}}</td>
+            <td>{{s.Discount_given}}</td>
+            <td>{{s.Comments}}</td>
+            <td>
+                <a href="./update/{{s.id}}"><button name="submit" value="submit" style="background-color:tomato;" class="btn btn-dark btn-sm">UPDATE</button> </a>
+            </td>
+            <td><a href="./remainder/{{s.id}}"><button name="submit" value="submit" class="btn btn-dark btn-sm" style="background-color: tomato;">REMAIND ME</button></a></td>
+            <td><a href="./Finance/{{s.id}}"><button name="submit" value="submit" class="btn btn-dark btn-sm" style="background-color: tomato;">Finance</button></a></td>
+            
+            
+           <td>{{s.Added_Into_System}}</td>
+            
+        </tr>
+        
+        {% endfor %}
+
+    </table>
+
+
+    
+</body>
+</html>

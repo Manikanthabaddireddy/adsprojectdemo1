@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Remainder Page</title>
+</head>
+<body style="background-color:lightpink;">
+    
+    
+    <h1 style="text-align: center;background-color:white;">Remainder  Form</h1>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 40%;">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&nbsp&nbsp&nbsp&times;</span>
+            </button>
+          </div>
+            
+        {% endfor %}
+        {% endif %}
+
+ 
+    <a href="http://127.0.0.1:8000/WA/Home">Go Home</a><br>
+    <a href="http://127.0.0.1:8000/WA/Home/Report/">Go Back</a>
+    <form method="POST">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% csrf_token %}
+        <div style="position: absolute;left: 380px;top: 15%;"><br><br>
+            <table> {{ form.as_table }}</table><br>
+        <button name="submit" value="submit" class="btn btn-dark btn-sm">Submit</button></div> 
+    </form><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <form action="" method="get">
+    <table border 1px solid style="background-color:white;width:100%;border-collapse: collapse;text-align: center;">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Added Into System</th>
+            <th>Calling Status</th>
+            <th>Remainder Date</th>
+            <th>Remainder Time</th>
+           
+        </tr>
+        {% for i in Remainder_data%}
+        <tr>
+            <td>{{i.Name}}</td>
+            <td>{{i.Phone_Number}}</td>
+            <td>{{i.Date_And_Time}}</td>
+            <td>{{i.Calling_status}}</td>
+            <td>{{i.Remainder_Date}}</td>
+            <td>{{i.Remainder_Time}}</td>
+            
+        </tr>
+        {% endfor%}
+    </table>
+   </form>
+
+        
+</body>
+</html>

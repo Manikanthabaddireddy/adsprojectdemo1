@@ -1,0 +1,64 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "HomePage.css" %} ">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <title>HomePage</title>
+    
+</head>
+<a href="http://127.0.0.1:8000/">Back to Login</a>
+<body style="background-color:lightpink;background-image: url('{% static 'cool-background.png'%}');">
+   
+     {% csrf_token %}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <h1 style="background-color: white;">Golden orchid Farms</h1><br>
+        <form action="{% url 'search' %}" method=POST>
+            {% csrf_token %}
+            
+            <div><input type="search" placeholder="     searching.." style="width: 300px;height: 35px;left: 400px;position: absolute;" name="searched">
+           
+            <button type="submit"  style="position: absolute; left: 710px;width: 80px; height: 33px;" class="btn btn-dark btn-sm">Search</button></div>
+        </form><br><br>
+        <a href="./Report/"><button name="submit" value="submit" style="position: absolute;height: 33px; left:400px" class="btn btn-dark btn-sm">Report Form</button></a>
+        <a href="./fin_reports/"><button name="submit" value="submit" style="position: absolute;height: 33px; left:505px" class="btn btn-dark btn-sm">Fin Reports</button></a>
+        <a href="./report/"><button name="submit" value="submit" class="btn btn-dark btn-sm" style="position: absolute;left: 600px;height: 33px;">Remainder Report</button></div></a><br><br>
+        
+        <br>{% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 40%;">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&times;</span>
+            </button>
+          </div>
+         
+           
+          </div>
+            
+        {% endfor %}
+        {% endif %}
+    {% block content %} 
+    
+    <span class="input-group-text">
+        
+        <span class="row">
+            
+    <form method="POST" class="form-control">
+        <h2 style="text-align: left; color:black; left: 10px;position: absolute;top: 35%;" >PLEASE FILL THE FORM</h2><br>   
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table><br>
+         
+        <button name="submit" value="submit" class="btn btn-dark btn-sm" >submit</button>
+    </form></span></span><br>
+    {% endblock %}
+
+    
+</body>
+</html>

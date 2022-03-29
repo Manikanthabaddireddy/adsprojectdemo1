@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Finance Report page</title>
+</head>
+<body style="background-color: lightpink;">
+    <a href="http://127.0.0.1:8000/WA/Home/">Go Back</a>
+   <h1>Finance Report</h1> 
+   <table border 1px solid style="background-color:white;width:100%;border-collapse: collapse;text-align: center;">
+       <tr>
+        <th>id</th>
+        <th>Phone Number</th>
+        <th>Name</th>
+        <th>Date Of Function</th>
+        <th> Price_Agreed</th>
+        <th>Total_amount_Received_So_Far</th>
+        <th> Add_Money</th>
+        <th>Payment status</th>
+        <th>action</th>
+        </tr>
+        {% for i in m %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.Phone_Number}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Date_Of_Function}}</td>
+            <td>{{i.Price_Agreed}}</td>
+            <td>{{i.Total_amount_Received_So_Far}}</td>
+            <td>{{i.Add_Money}}</td>
+            <td>{{i.Total_Amount_Status}}</td>
+            <td><a href="./update/{{i.id}}"><button class="btn btn-dark btn-sm" style="background-color: tomato;">update</button></td></a>
+        </tr>
+        {% endfor %}
+   </table>
+</body>
+</html>

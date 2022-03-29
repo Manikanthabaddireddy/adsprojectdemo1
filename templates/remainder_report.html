@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Remainder Report</title>
+</head>
+<body style="background-color: lightpink;">
+    <h1 style="text-align: center;background-color:white;">Remainder Details Form</h1>
+    <a href="http://127.0.0.1:8000/WA/Home/"> Go Back</a>
+    <form method="POST">
+        {% csrf_token %}
+       
+        <table border 1px solid style="background-color:white;width:100%;border-collapse: collapse;text-align: center;">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Added Into System</th>
+                <th>Calling Status</th>
+                <th>Remainder Date</th>
+                <th>Remainder Time</th>
+                <th>Action</th>
+            </tr>
+            {% for i in Remainder_data%}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.Phone_Number}}</td>
+                <td>{{i.Date_And_Time}}</td>
+                <td>{{i.Calling_status}}</td>
+                <td>{{i.Remainder_Date}}</td>
+                <td>{{i.Remainder_Time}}</td>
+                <td><a href="./remainder_update/{{i.id}}">Update</a></td>
+            </tr>
+            {% endfor%}
+        </table>
+        
+    </form>
+</body>
+</html>

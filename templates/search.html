@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Search Result</title>
+    </head>
+<body style="background-color:lightpink;">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+        {% if searched %}
+            <h1>You searched for {{searched}}</h1>
+            <a href="http://127.0.0.1:8000/WA/Home">Go Back</a>
+            <table  border 1px solid style="background-color:white;width:100%;border-collapse:collapse;text-align: center;">
+            <tr>
+                <th>Phone Number</th>
+                <th>Name</th>
+                <th>Calling status</th>
+                <th>Current status</th>
+                <th>Date Of Function</th>
+                <th>type Function</th>
+                <th>Guests</th>
+                <th>Decoration</th>
+                <th>Food</th>
+                <th>Customer Budget</th>
+                <th>Price_Quoted</th>
+                <th>Prince_Finalized</th>
+                <th>Discount_given</th>
+                <th>Comments</th>
+                <th>Action</th>
+                <th>Remainder</th>
+                <th>Finance</th>
+                <th>Added Into System</th>    
+            </tr>
+            {% for i in result %}
+            <tr>
+                <td>{{i.Phone_Number}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.Calling_status}}</td>
+                <td>{{i.Current_status}}</td>
+                <td>{{i.Date_Of_Function}}</td>
+                <td>{{i.type_function}}</td>
+                <td>{{i.Guests}}</td>
+                <td>{{i.Decoration}}</td>
+                <td>{{i.Food}}</td>
+                <td>{{i.Customer_Budget}}</td>
+                <td>{{i.Price_Quoted}}</td>
+                <td>{{i.Prince_Finalized}}</td>
+                <td>{{i.Discount_given}}</td>
+                <td>{{i.Comments}}</td>
+                <td><a href="./update/{{i.id}}" style="color:tomato;" class="btn btn-dark btn-sm">UPDATE</a></td>
+            <td><a href="./remainder/{{i.id}}"><button name="submit" value="submit" class="btn btn-dark btn-sm" style="background-color: tomato;">REMAIND ME</button></a></td>
+            <td><a href="./Finance/{{i.id}}"><button value="submit" name="submit" class="btn btn-dark btn-sm" style="background-color: tomato;">Finance</button></a></td>
+                <td>{{i.Added_Into_System}}</td>
+            </tr>
+            
+            {% endfor %}</table></form>
+        {% else %}
+            <h1>You forgot to search!</h1>
+        {% endif%}
+
+</body>
+</html>
