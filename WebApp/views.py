@@ -33,7 +33,7 @@ def Fin(request,id):
     form.fields['Name'].widget.attrs['readonly']=True
     form.fields['Phone_Number'].widget.attrs['readonly']=True
     form.fields['Date_Of_Function'].widget.attrs['readonly']=True
-    m=Finance_Model.objects.all()
+    m=Finance_Model.objects.all()#it will retreive all data from Finance_Model(Database)
     for i in m:
         if s.Phone_Number==i.Phone_Number:
             print(s.Phone_Number)
