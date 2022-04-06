@@ -2,7 +2,6 @@
 
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from phonenumbers import PhoneNumber
 from WebApp.forms import Remainder_Modelform, Web_Modelform
 from WebApp.forms import Fin_Modelform
 from WebApp.models import Finance_Model, Web_Model,Remainder_Model
@@ -90,16 +89,6 @@ def Fin_update(request,id):
     form.fields['Date_Of_Function'].widget.attrs['readonly']=True
     form.fields['Price_Agreed'].widget.attrs['readonly']=True
     form.fields['Total_amount_Received_So_Far'].widget.attrs['readonly']=True
-    if s.Total_amount_Received_So_Far == int(s.Price_Agreed):
-        form.fields['Add_Money'].widget.attrs['readonly']=True
-        msg="Received Money is equal to Price Agreed So Add Money is not required*" 
-        print('yes')
-    else:
-        msg="Received Money is not equal to Price Agreed*"
-        print(s.Total_amount_Received_So_Far)
-        print(s.Price_Agreed)
-
-
     if int(s.Price_Agreed) <=  s.Total_amount_Received_So_Far:
         form.fields['Add_Money'].widget.attrs['readonly']=True
     
